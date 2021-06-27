@@ -1,6 +1,8 @@
+using FluentValidator;
+
 namespace Store.Domain.StoreContext.Entities
 {
-    public class Product
+    public class Product : Notifiable
     {
         public Product(
             string title,
@@ -24,6 +26,11 @@ namespace Store.Domain.StoreContext.Entities
         public override string ToString()
         {
             return Title;
+        }
+
+        public void DecreaseQuantity(decimal quantity)
+        {
+            QuantityOnHand -= quantity;
         }
     }
 }
