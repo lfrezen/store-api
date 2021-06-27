@@ -10,7 +10,7 @@ namespace Store.Domain.StoreContext.ValueObjects
             Number = number;
 
             AddNotifications(new ValidationContract()
-                .IsTrue(Validate(Number), "Document", "CPF inválido")
+                .IsTrue(Validate(Number), "Document", "CPF invalido")
             );
         }
         public string Number { get; private set; }
