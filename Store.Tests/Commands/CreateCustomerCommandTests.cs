@@ -18,7 +18,7 @@ namespace Store.Tests.ValueObjects
             command.Email = "joao@email.com";
             command.Phone = "11999992222";
             
-            Assert.AreEqual(true, command.Valid());
+            Assert.AreEqual(true, command.IsValid());
         }
     }
 }

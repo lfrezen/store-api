@@ -12,7 +12,7 @@ namespace Store.Domain.StoreContext.CustomerCommands.Inputs
         public string Email { get; set; }
         public string Phone { get; set; }
 
-        public bool Valid()
+        public bool IsValid()
         {
             AddNotifications(new ValidationContract()
                 .Requires()

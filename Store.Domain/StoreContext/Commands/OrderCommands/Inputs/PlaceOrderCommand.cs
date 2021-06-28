@@ -15,7 +15,7 @@ namespace Store.Domain.StoreContext.OrderCommands.Inputs
         public Guid Customer { get; set; }
         public IList<OrderItemCommand> OrderItems { get; set; }
 
-        public bool Valid()
+        public bool IsValid()
         {
             AddNotifications(new ValidationContract()
                 .Requires()
