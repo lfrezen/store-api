@@ -1,11 +1,12 @@
-using FluentValidator;
+using System;
 using Store.Domain.StoreContext.Enums;
+using Store.Shared.Entities;
 
 namespace Store.Domain.StoreContext.Entities
 {
-    public class Address : Notifiable
+    public class Address : Entity
     {
-        public Address(
+        public Address (
         string street,
         string number,
         string complement,
@@ -25,7 +26,7 @@ namespace Store.Domain.StoreContext.Entities
             Country = country;
             ZipCode = zipCode;
             Type = type;
-        }
+        } 
         public string Street { get; private set; }
         public string Number { get; private set; }
         public string Complement { get; private set; }

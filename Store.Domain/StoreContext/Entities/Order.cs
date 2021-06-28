@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentValidator;
 using Store.Domain.StoreContext.Enums;
+using Store.Shared.Entities;
 
 namespace Store.Domain.StoreContext.Entities
 {
-    public class Order : Notifiable
+    public class Order : Entity
     {
         private readonly IList<OrderItem> _items;
         private readonly IList<Delivery> _deliveries;
@@ -28,7 +29,7 @@ namespace Store.Domain.StoreContext.Entities
         public void AddItem(Product product, decimal quantity)
         {
             if (quantity > product.QuantityOnHand)
-                AddNotification("OrderItem", $"Produto {product.Title} não tem {quantity} itens em estoque");
+                AddNotification("OrderItem", $"Produto {product.Title} nï¿½o tem {quantity} itens em estoque");
 
             var item = new OrderItem(product, quantity);
             _items.Add(item);
@@ -39,7 +40,7 @@ namespace Store.Domain.StoreContext.Entities
         {
             Number = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8).ToUpper();
             if (_items.Count == 0)
-                AddNotification("Order", "Este pedido não possui itens");
+                AddNotification("Order", "Este pedido nï¿½o possui itens");
         }
 
         public void Pay()
