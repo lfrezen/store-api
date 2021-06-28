@@ -1,9 +1,10 @@
 using System;
+using FluentValidator;
 using Store.Domain.StoreContext.Enums;
 
 namespace Store.Domain.StoreContext.CustomerCommands.Inputs
 {
-    public class AddAddressCommand
+    public class AddAddressCommand : Notifiable
     {
         public Guid Id { get; set; }
         public string Street { get; set; }
